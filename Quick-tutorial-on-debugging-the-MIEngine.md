@@ -1,8 +1,8 @@
-This wiki page will give a quick overview to how you can get started digging into the source code of the MIEngine. In this tutorial, we are going to debug an Android native C++ project, as support for these are already built into Visual Studio. If you are interested in modifying the MIEngine to target some other platform, this tutorial is still probably useful to you so that you can see how to quickly test your code for the Android scenario.
+This wiki page will give a quick overview on how you can get started digging into the source code of the MIEngine. In this tutorial, we are going to debug an Android native C++ project, as support for these are already built into Visual Studio. If you are interested in modifying the MIEngine to target some other platform, this tutorial is still probably useful to you so that you can see how to quickly test your code for the Android scenario.
 
 ### Setup steps:
 
-1. Install Visual Studio on a real computer. Running it under parallels on a Mac should work also. Running it inside of a Hyper-V VM will not.
+1. Install Visual Studio on a real computer (not a VM). Running it under parallels on a Mac should work also. Running it inside of a Hyper-V VM will not.
 
 2. Make sure that Android C++ support is enabled in Visual Studio 2015 setup. If you didn't do this or you aren't sure --
     * Open Window's Control Panel
@@ -11,9 +11,9 @@ This wiki page will give a quick overview to how you can get started digging int
     * Right click and invoke 'Change'
     * Click the Modify button
     * Make sure these are checked (NOTE: the names were a bit different in Visual Studio 2015 RC, so look around if you are using that build)
-        * Programming Languages->Visual C++->Common Tools for Visual C++
-        * Cross Platform Mobile Development->Visual C++ Mobile Development
-        * Cross Platform Mobile Development->Microsoft Visual Studio Emulator for Android
+        * Programming Languages -> Visual C++ -> Common Tools for Visual C++
+        * Cross Platform Mobile Development -> Visual C++ Mobile Development
+        * Cross Platform Mobile Development -> Microsoft Visual Studio Emulator for Android
 
 3. If you haven't already done so, clone the MIEngine repository
 
@@ -27,7 +27,7 @@ This wiki page will give a quick overview to how you can get started digging int
 
 4. Hit F5 to start debugging. This will launch an experimental instance of Visual Studio.
 
-5. In the experimental instance, File->New Project, Visual C++->Cross Platform->Native-Activity Application (Android)
+5. In the experimental instance, File -> New Project, Visual C++ -> Cross Platform -> Native-Activity Application (Android)
 
 6. In the experimental instance, open main.cpp from the created project
 
