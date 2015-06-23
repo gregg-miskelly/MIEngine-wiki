@@ -21,18 +21,16 @@ The MIEngine supports several different types of XML elements, here is a list:
 
 More details on all the options can be found in [MICore\LaunchOptions.xsd](https://github.com/Microsoft/MIEngine/blob/master/src/MICore/LaunchOptions.xsd). If you open this file in Visual Studio before you start to author your own launch options file, the XML language service will validate your XML against the schema, provide auto-complete and give you access to the documentation.
 
-In the master branch, the launch options XML also support replacing or adding custom launch commands. This is with the SetupCommands / CustomLaunchSetupCommands / LaunchCompleteCommand elements which are nested inside the top level options xml. Note that this support didn't ship with VS 2015 RTM, but will be included in future releases of Visual Studio.
+In the master branch, the launch options XML also support replacing or adding custom launch commands. This is with the SetupCommands / CustomLaunchSetupCommands / LaunchCompleteCommand elements which are nested inside the top level option xml element. Note that this support didn't ship with VS 2015 RTM, but will be included in future releases of Visual Studio.
 
 ### Start debugging
 
 Now that you have your launch options all setup, it is time to try them out.
 * In Visual Studio, go to View->Other Windows->Command Window to open up the Visual Studio command window
 * Run the following command. Note that friendly name can be anything you want as long as the real path to the target is in the options file (or the default launch command are overridden so that the real path to the executable doesn't matter anyway).
-    Debug.MIDebugLaunch /Executable:<friendly_name> /OptionsFile:<path-to-file>
+    Debug.MIDebugLaunch /Executable:\<friendly_name\> /OptionsFile:\<path-to-file\>
 
-Note that once you have everything working, its possible to make a Visual Studio extension to start debugging without needing to write the launch options to disk or use the command window. Debug.MIDebugLaunch just invokes the normal Visual Studio start debugging API (LaunchDebugTargets4).
-
-To see the source code for how Debug.MIDebugLaunch works, expand the MIDebugPackage project, and open MIDebugPackagePackage.cs. Look at the LaunchDebugTarget function. To create projects which will start debugging using your extension, you want to create a [Visual C++ 2015 Debugger Launch Extension](https://visualstudiogallery.msdn.microsoft.com/7fe7f19f-ceb9-47e3-b440-c62df2b85281). If you want something simpler, you could certainly also just add a Visual Studio menu item.
+Note that once you have everything working, its possible to make a Visual Studio extension to start debugging without needing to write the launch options to disk or use the command window. To see the source code for how Debug.MIDebugLaunch works so you can do this in your own extension open [MIDebugPackagePackage.cs](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugPackage/MIDebugPackagePackage.cs) and look at the LaunchDebugTarget function. To create projects which will start debugging using your extension, you want to create a [Visual C++ 2015 Debugger Launch Extension](https://visualstudiogallery.msdn.microsoft.com/7fe7f19f-ceb9-47e3-b440-c62df2b85281). If you want something simpler, you could certainly also just add a Visual Studio menu item.
 
 ### Trouble shooting
 
