@@ -21,7 +21,7 @@ The MIEngine supports several different types of XML elements, here is a list:
 
 More details on all the options can be found in [MICore\LaunchOptions.xsd](https://github.com/Microsoft/MIEngine/blob/master/src/MICore/LaunchOptions.xsd). If you open this file in Visual Studio before you start to author your own launch options file, the XML language service will validate your XML against the schema, provide auto-complete and give you access to the documentation.
 
-In the master branch, the launch options XML also support replacing or adding custom launch commands. This is with the SetupCommands/CustomLaunchSetupCommands/LaunchCompleteCommand elements which are nested inside the top level options xml. Note that this support didn't ship with VS 2015 RTM, but will be included in future releases of Visual Studio.
+In the master branch, the launch options XML also support replacing or adding custom launch commands. This is with the SetupCommands / CustomLaunchSetupCommands / LaunchCompleteCommand elements which are nested inside the top level options xml. Note that this support didn't ship with VS 2015 RTM, but will be included in future releases of Visual Studio.
 
 ### Start debugging
 
