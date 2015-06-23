@@ -5,7 +5,7 @@ The 'Visual Studio Core Debugger' and 'GDB/LLDB' are the two parts of the diagra
 
 The Visual Studio Core Debugger box represents the Visual Studio UI, and the rest of the core visual studio debugging logic. This will call into the MIDebugEngine through the AD7 interfaces (IDebugEngine2, IDebugProgram2, etc). The MIDebugEngine will also call back into AD7 interfaces to send events (ex: a breakpoint was hit) or in some cases to obtain the objects needed to fulfill the contracts of the AD7 interfaces (ex: to obtain an IDebugProcess2 from the SDM for the newly launched process).
 
-MIDebugEngine/AD7.Impl is the top layer of the MIEngine. This structure of having a layer of the debug engine to implement AD7 is inherited from the [Debug Engine Sample](https://code.msdn.microsoft.com/Visual-Studio-Debug-Engine-c2e21c0e) which is the bases for this project. This layer contains the code required to implement the AD7 interfaces.
+MIDebugEngine/AD7.Impl is the top layer of the MIEngine. This structure of having a layer of the debug engine to implement AD7 is inherited from the [Debug Engine Sample](https://code.msdn.microsoft.com/Visual-Studio-Debug-Engine-c2e21c0e) which is the bases for this project. This layer contains the code required to implement the AD7 interfaces. If you want to dig into this layer more, the debug engine sample contains documentation on how debug engines work.
 
 MIDebugEngine/Engine.Impl is where most of the smarts of the MI Engine live. It presents an object model to the AD7 layer to make it easy for the AD7 layer to do its job.
 
