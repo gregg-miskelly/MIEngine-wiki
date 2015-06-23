@@ -32,9 +32,10 @@ Now that you have your launch options all setup, it is time to try them out.
 
 Note that once you have everything working, its possible to make a Visual Studio extension to start debugging without needing to write the launch options to disk or use the command window. To see the source code for how Debug.MIDebugLaunch works so you can do this in your own extension open [MIDebugPackagePackage.cs](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugPackage/MIDebugPackagePackage.cs) and look at the LaunchDebugTarget function. To create projects which will start debugging using your extension, you want to create a [Visual C++ 2015 Debugger Launch Extension](https://visualstudiogallery.msdn.microsoft.com/7fe7f19f-ceb9-47e3-b440-c62df2b85281). If you want something simpler, you could certainly also just add a Visual Studio menu item.
 
-### Trouble shooting
+### Troubleshooting
+If you are still using VS 2015 RC, I would recommend upgrading to something more recent (ex: pull down sources from master), as we have made improvements to our diagnostics since RC.
 
-TODO
+Beyond that, I would recommend starting by looking at logs. See [Logging](logging).
 
 ### Known issues
 
