@@ -5,9 +5,12 @@ Visual Studio ships with support for debugging on Android or iOS, which is power
 The MIEngine accepts a set of options at startup to tell it what to debug. Here is an example:
 
     <PipeLaunchOptions xmlns="http://schemas.microsoft.com/vstudio/MDDDebuggerOptions/2014" 
-        PipePath="plink.exe" PipeArguments="-i private.ppk user@server -batch -t gdb --interpreter=mi" 
+        PipePath="plink.exe" 
+        PipeArguments="-i private.ppk user@server -batch -t gdb --interpreter=mi" 
         ExePath="/home/user/YourDir/exe" ExeArguments="" 
-        TargetArchitecture="X64" WorkingDirectory="/home/user/YourDir" AdditionalSOLibSearchPath=""> 
+        TargetArchitecture="X64" 
+        WorkingDirectory="/home/user/YourDir" 
+        AdditionalSOLibSearchPath=""> 
     </PipeLaunchOptions>
 
 The MIEngine supports several different types of XML elements, here is a list:
