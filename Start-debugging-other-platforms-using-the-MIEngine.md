@@ -14,7 +14,7 @@ The MIEngine accepts a set of options at startup to tell it what to debug. Here 
     </PipeLaunchOptions>
 
 The MIEngine supports several different types of XML elements, here is a list:
-* PipeLaunchOptions - use some program to connect to a target device, and run gdb/lldb on that target device, passing back stdin/out. An example of such a program is [plink.exe](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe) from the [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) project which can be used to connect to the target device over SSH. The Docker client executable can also be used as a pipe to run commands inside the target container.
+* PipeLaunchOptions - use some program to connect to a target device, and run gdb/lldb on that target device, passing back stdin/out. An example of such a program is [plink.exe](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe) from the [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) project which can be used to connect to the target device over SSH. The Docker client executable can also be used as a pipe to run commands inside the target container using 'docker exec'.
 * LocalLaunchOptions - runs gdb/lldb locally (on the same Windows computer where Visual Studio is running) and either connect to some remote gdbserver end point, or debug a local windows process.
 * TcpLaunchOptions - connect to a TCP/IP port that GDB input/output has been piped through.
 * SerialPortLaunchOptions - connect to a serial port that GDB input/output has been piped through.
