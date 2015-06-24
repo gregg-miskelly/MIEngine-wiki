@@ -2,7 +2,7 @@ Visual Studio ships with support for debugging on Android or iOS, which is power
 
 ### Launch options XML
 
-The MIEngine accepts a set of options at startup to tell it what to debug. Here is an example:
+The MIEngine accepts a set of options when we start debugging to tell it what to debug. Here is an example:
 
     <PipeLaunchOptions xmlns="http://schemas.microsoft.com/vstudio/MDDDebuggerOptions/2014" 
         PipePath="plink.exe" 
