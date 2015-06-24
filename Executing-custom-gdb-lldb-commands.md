@@ -8,4 +8,4 @@ Notes:
 * This is only supported when the target process is stopped
 * Don't run commands that cause the target process to run again
 
-![Example screenshot](MIDebugExec.png)
+![Example screenshot](images/MIDebugExec.png)
