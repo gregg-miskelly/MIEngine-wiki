@@ -14,14 +14,14 @@ The MIEngine accepts a set of options when we start debugging to tell it what to
     </PipeLaunchOptions>
 
 The MIEngine supports several different types of XML elements, here is a list:
-* PipeLaunchOptions - use some program to connect to a target device, and run gdb/lldb on that target device, passing back stdin/out. An example of such a program is [plink.exe](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe) from the [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) project which can be used to connect to the target device over SSH. The Docker client executable can also be used as a pipe to run commands inside the target container using 'docker exec'.
-* LocalLaunchOptions - runs gdb/lldb locally (on the same Windows computer where Visual Studio is running) and either connect to some remote gdbserver end point, or debug a local windows process.
+* PipeLaunchOptions - use some program to connect to a target device, and run gdb/lldb on that target device, passing back stdin/out. An example of such a program is [plink.exe](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe) from the [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/) project which can be used to connect to the target device over SSH. For another example, the Docker client executable can also be used as a pipe to run commands inside the target container using 'docker exec'.
+* LocalLaunchOptions - runs gdb/lldb locally (on the same Windows computer where Visual Studio is running) and either connect to some gdbserver end point, or debug a local windows process.
 * TcpLaunchOptions - connect to a TCP/IP port that GDB input/output has been piped through.
 * SerialPortLaunchOptions - connect to a serial port that GDB input/output has been piped through.
 
 More details on all the options can be found in [MICore\LaunchOptions.xsd](https://github.com/Microsoft/MIEngine/blob/master/src/MICore/LaunchOptions.xsd). If you open this file in Visual Studio before you start to author your own launch options file, the XML language service will validate your XML against the schema, provide auto-complete and give you access to the documentation.
 
-In the master branch, the launch options XML also support replacing or adding custom launch commands. This is with the SetupCommands / CustomLaunchSetupCommands / LaunchCompleteCommand elements which are nested inside the top level option xml element. Note that this support didn't ship with VS 2015 RTM, but will be included in future releases of Visual Studio.
+In the master branch, the launch options XML also supports replacing or adding custom launch commands. This is with the SetupCommands / CustomLaunchSetupCommands / LaunchCompleteCommand elements which are nested inside the top level option xml element. Note that this support didn't ship with VS 2015 RTM, but will be included in future releases of Visual Studio.
 
 ### Start debugging
 
