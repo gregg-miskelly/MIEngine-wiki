@@ -39,4 +39,7 @@ Beyond that, I would recommend starting by looking at logs. See [Logging](loggin
 
 ### Known issues
 
-TODO
+We have a number of known issues with supporting other platforms that might be relevant to what you are trying to do. These are issues that we intend to fix, though if you are interested in working on these, we are definitely interested in taking contributions.
+
+[Issues list](https://github.com/Microsoft/MIEngine/labels/general-linux-support)
+
