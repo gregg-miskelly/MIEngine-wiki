@@ -25,18 +25,20 @@ This wiki page will give a quick overview on how you can get started digging int
 
 3. Find the Initialize method of the class, and set a breakpoint
 
-4. Hit F5 to start debugging. This will launch an experimental instance of Visual Studio.
+4. Hit F5 to start debugging. This will launch an experimental instance of Visual Studio
 
-5. In the experimental instance, File -> New Project, Visual C++ -> Cross Platform -> Native-Activity Application (Android)
+5. In The experimental instance:
 
-6. In the experimental instance, open main.cpp from the created project
+   1. File -> New Project, Visual C++ -> Cross Platform -> Native-Activity Application (Android)
 
-7. In the experimental instance, go to the android_main method, and set a breakpoint
+   2. Open main.cpp from the created project
 
-8. In the experimental instance, hit F5 to start debugging. The Android emulator should startup. This will be slow the first time, but should be subsequently fast
+   3. Set a breakpoint in the android_main method
 
-9. Your breakpoint in DebuggedProcess.Initialize will hit. You can step through and see the commands that are being sent to GDB if you like. If you open the output window in your main Visual Studio instance, you can also see all the commands that we sent and the response/events that came back.
+   4. F5 or Debug -> Start Debugging to start debugging. The Android emulator should startup. This will be slow the first time, but should be subsequently fast
 
-10. Hit F5 from this breakpoint and see your experimental instance stop at a breakpoint as well.
+6. Your breakpoint in DebuggedProcess.Initialize will hit. You can step through and see the commands that are being sent to GDB if you like. If you open the output window in your main Visual Studio instance, you can also see all the commands that we sent and the response/events that came back.
+
+7. Hit F5 from this breakpoint and see your experimental instance stop at a breakpoint as well.
 
 ![Experimental instance of Visual Studio stopped at a breakpoint](images/android-breakpoint.png)
