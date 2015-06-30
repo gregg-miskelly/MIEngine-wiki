@@ -2,7 +2,7 @@ This wiki page will give a quick overview on how you can get started digging int
 
 ### Setup steps:
 
-1. Install Visual Studio on a real computer (not a VM). Running it under parallels on a Mac should work also. Running it inside of a Hyper-V VM will not.
+1. Install Visual Studio on a real computer (not a VM).
 
 2. Make sure that Android C++ support is enabled in Visual Studio 2015 setup. If you didn't do this or you aren't sure --
     * Open Windows Control Panel
@@ -14,6 +14,7 @@ This wiki page will give a quick overview on how you can get started digging int
         * Programming Languages -> Visual C++ -> Common Tools for Visual C++
         * Cross Platform Mobile Development -> Visual C++ Mobile Development
         * Cross Platform Mobile Development -> Microsoft Visual Studio Emulator for Android
+        * Common Tools -> Visual Studio Extensibility Tools
 
 3. If you haven't already done so, clone the MIEngine repository
 
@@ -21,7 +22,7 @@ This wiki page will give a quick overview on how you can get started digging int
 
 1. Start your main instance of Visual Studio, and open MIDebugEngine.sln
 
-2. In solution explorer, find the MIDebugEngine project, and open Engine.Impl\DebuggedProcess.cs
+2. In solution explorer, find the MIDebugEngine project, and open [Engine.Impl\DebuggedProcess.cs](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugEngine/Engine.Impl/DebuggedProcess.cs)
 
 3. Find the Initialize method of the class, and set a breakpoint
 
