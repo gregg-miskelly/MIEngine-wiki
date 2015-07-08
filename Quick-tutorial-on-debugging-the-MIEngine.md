@@ -10,7 +10,7 @@ This wiki page will give a quick overview on how you can get started digging int
     * Find Microsoft Visual Studio 2015 in the list.
     * Right click and invoke 'Change'.
     * Click the 'Modify' button.
-    * Make sure these are checked (NOTE: the names were a bit different in Visual Studio 2015 RC, so look around if you are using that build)
+    * Make sure these are checked
         * Programming Languages -> Visual C++ -> Common Tools for Visual C++
         * Cross Platform Mobile Development -> Visual C++ Mobile Development
         * Cross Platform Mobile Development -> Microsoft Visual Studio Emulator for Android
