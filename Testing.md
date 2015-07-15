@@ -42,3 +42,25 @@ Here is an example of authoring a new test for setting a breakpoint, running to 
 - The existing tests are all based on the Native Activity Project template for Android provided in Visual Studio 2015. The name of the project will define the name of the test. It should be saved to the test\Android directory.
 For this test we will name the project Eval.
 ![New Test Project](images/new-test-project.PNG)
+
+- We will strip out all of the graphics code from the template project and insert our test code into the android_main function.
+```C++
+void android_main(struct android_app* state) {
+	int i = 0xDEADBEEF;
+
+	i += 0; // bp here
+}
+```
+
+- Next, copy the LaunchOptions.xml.template file from the Sanity test into the Eval test folder and make changes for the Eval project:
+```XML
+  <AndroidLaunchOptions xmlns="http://schemas.microsoft.com/vstudio/MDDDebuggerOptions/2014"
+    Package="com.Eval"
+    LaunchActivity="android.app.NativeActivity"
+    SDKRoot="$SdkRoot$"
+    NDKRoot="$NdkRoot$"
+    TargetArchitecture="$TargetArchitecture$"
+    IntermediateDirectory="$IntermediateDirectory$"
+    AdditionalSOLibSearchPath="$AdditionalSOLibSearchPath$"
+    DeviceId="$DeviceId$"/>
+```
