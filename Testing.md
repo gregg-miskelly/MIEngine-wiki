@@ -41,4 +41,4 @@ Here is an example of authoring a new test for setting a breakpoint, running to 
 
 - The existing tests are all based on the Native Activity Project template for Android provided in Visual Studio 2015. The name of the project will define the name of the test. It should be saved to the test\Android directory.
 For this test we will name the project Eval.
-![New Test Project](images/new-test-project.png)
+![New Test Project](images/new-test-project.PNG)
