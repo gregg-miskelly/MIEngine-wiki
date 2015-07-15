@@ -2,7 +2,10 @@
 
 MIEngine includes a suite of automated tests that can be run against an Android emulator or device. The tests can be found in [test\Android](https://github.com/Microsoft/MIEngine/tree/glass/test/Android).
 
-## Running Glass Tests
+
+These tests are called 'Glass Tests' because they are automated against a scriptable, command line debugger frontend called Glass (glass2.exe) that loads and uses the MIEngine binaries the same way that Visual Studio does. More information about Glass can be found [here](TODO: link to glass wiki page).
+
+## Running Android Glass Tests
 
 To run all tests against an android emulator:
 
@@ -26,3 +29,4 @@ c:\MIEngine\test\Android>androidtest.cmd /DeviceId 169.254.138.177:5555 /Platfor
 ```
 c:\MIEngine\test\Android>androidtest.cmd /DeviceId 169.254.138.177:5555 /Platform x86 /Tests Sanity
 ```
+
