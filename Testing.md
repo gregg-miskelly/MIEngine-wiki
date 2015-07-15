@@ -30,3 +30,9 @@ c:\MIEngine\test\Android>androidtest.cmd /DeviceId 169.254.138.177:5555 /Platfor
 c:\MIEngine\test\Android>androidtest.cmd /DeviceId 169.254.138.177:5555 /Platform x86 /Tests Sanity
 ```
 
+
+## Authoring Glass Tests
+A new glass tests requires at least three items:
+- A test 'debuggee', which is an Android application that MIEngine will debug in order to exercise it's code.
+- A LaunchOptions.xml.template file, which contains information needed to launch the debguggee, such as it's package name.
+- A TestScript.xml, which contains the commands for Glass and the expected output. 
