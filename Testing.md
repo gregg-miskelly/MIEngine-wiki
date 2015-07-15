@@ -36,3 +36,9 @@ A new glass tests requires at least three items:
 - A test 'debuggee', which is an Android application that MIEngine will debug in order to exercise it's code.
 - A LaunchOptions.xml.template file, which contains information needed to launch the debguggee, such as it's package name.
 - A TestScript.xml, which contains the commands for Glass and the expected output. 
+
+Here is an example of authoring a new test for setting a breakpoint, running to it, and evaluating a local variable. 
+
+- The existing tests are all based on the Native Activity Project template for Android provided in Visual Studio 2015. The name of the project will define the name of the test. It should be saved to the test\Android directory.
+For this test we will name the project Eval.
+![New Test Project](images/new-test-project.png)
