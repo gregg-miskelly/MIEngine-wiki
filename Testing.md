@@ -226,3 +226,9 @@ void android_main(struct android_app* state) {
   <Command name="quit" />
 </GlassEventLog>
 ```
+Tips for authoring a TestScript.xml can be found [here](TODO)
+
+- Run our new test using the androidtest.cmd script
+```
+c:\MIEngine\test\Android>androidtest.cmd /DeviceId 169.254.138.177:5555 /Platform x86 /Tests Eval
+```
