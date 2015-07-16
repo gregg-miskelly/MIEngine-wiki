@@ -69,22 +69,12 @@ void android_main(struct android_app* state) {
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
 <GlassEventLog>
-  <Command name="setmode ShowParameterValues off">
-    <Duration Volatile="True">00:00:00.0035889</Duration>
-  </Command>
-  <Command name="SetLaunchOptionsString @LaunchOptions.xml">
-    <Duration Volatile="True">00:00:00.0000704</Duration>
-  </Command>
-  <Command name="interact">
-    <Duration Volatile="True">00:00:00.0018288</Duration>
-  </Command>
-  <Command name="bp main.cpp 29">
-    <Duration Volatile="True">00:00:00.0050730</Duration>
-  </Command>
+  <Command name="setmode ShowParameterValues off" />
+  <Command name="SetLaunchOptionsString @LaunchOptions.xml" />
+  <Command name="bp main.cpp 29" />
   <Command name="launch MIEngine app_process">
     <Event name="IDebugSessionCreateEvent2" expected="False" />
     <Event name="IDebugProcessCreateEvent2" expected="False" />
-    <Duration Volatile="True">00:00:01.3434269</Duration>
     <Event name="IDebugProgramCreateEvent2" expected="False" />
     <Event name="IDebugBreakpointErrorEvent2" expected="False">
       <WarningMessage>module containing this breakpoint has not yet loaded or the breakpoint address could not be obtained.</WarningMessage>
@@ -186,7 +176,6 @@ void android_main(struct android_app* state) {
     <Event name="IDebugThreadCreateEvent2" expected="False" />
     <Event name="IDebugThreadCreateEvent2" expected="False" />
     <Event name="IDebugThreadCreateEvent2" expected="False" />
-    <Event name="IDebugThreadCreateEvent2" expected="False" />
     <Event name="IDebugOutputStringEvent2" expected="False" />
     <Event name="IDebugBreakpointBoundEvent2" expected="False">
       <BoundBreakpoint>28,0 to 28,0 in [Unknown]!android_main(android_app*)</BoundBreakpoint>
@@ -210,7 +199,6 @@ void android_main(struct android_app* state) {
     <EvalName>i</EvalName>
     <EvalFullName>i</EvalFullName>
     <EvalIsExpandable>False</EvalIsExpandable>
-    <Duration Volatile="True">00:00:00.0490440</Duration>
   </Command>
   <Command name="eval i,x">
     <EvalResult>0xdeadbeef</EvalResult>
@@ -218,7 +206,6 @@ void android_main(struct android_app* state) {
     <EvalName>i,x</EvalName>
     <EvalFullName>i</EvalFullName>
     <EvalIsExpandable>False</EvalIsExpandable>
-    <Duration Volatile="True">00:00:00.0232201</Duration>
   </Command>
   <Command name="eval i,o">
     <EvalResult>033653337357</EvalResult>
@@ -226,22 +213,16 @@ void android_main(struct android_app* state) {
     <EvalName>i,o</EvalName>
     <EvalFullName>i</EvalFullName>
     <EvalIsExpandable>False</EvalIsExpandable>
-    <Duration Volatile="True">00:00:00.0079049</Duration>
   </Command>
   <Command name="go">
     <Event name="IDebugProcessContinueEvent100" expected="False" />
-    <Duration Volatile="True">00:00:00.2088062</Duration>
   </Command>
   <Command name="stopdebugging">
     <Event name="IDebugOutputStringEvent2" expected="False" />
-    <Duration Volatile="True">00:00:00.3648627</Duration>
     <Event name="IDebugProgramDestroyEvent2" expected="False" />
     <Event name="IDebugProcessDestroyEvent2" expected="False" />
     <Event name="IDebugSessionDestroyEvent2" expected="True" />
-    <OutputString>{=thread-group-exited,id="i1"}</OutputString>
   </Command>
-  <Command name="quit">
-    <Duration Volatile="True">00:00:00.0100126</Duration>
-  </Command>
+  <Command name="quit" />
 </GlassEventLog>
 ```
