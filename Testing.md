@@ -48,7 +48,7 @@ For this test we will name the project Eval.
 void android_main(struct android_app* state) {
 	int i = 0xDEADBEEF;
 
-	i += 0; // bp here
+	i += 0; // bp here, line 29
 }
 ```
 
