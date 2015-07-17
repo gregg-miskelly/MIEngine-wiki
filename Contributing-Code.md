@@ -4,11 +4,11 @@ Before submitting a feature or substantial code contribution please discuss it w
 
 The MIEngine project follows a similar developer guide to [.NET](https://github.com/dotnet/corefx/wiki/Developer-Guide).  The team enforces this by regularly running the [.NET code formatter tool](https://github.com/dotnet/codeformatter) on the code base.  Contributors should ensure they follow these guidelines when making submissions.  
 
-For now, the team has set the following limits on pull requests:
+The team has set the following limits on pull requests:
 
-- Contributions beyond the level of a bug fix must be discussed with the team first, or they will likely be declined. As our process matures and our experience grows, the team expects to take larger contributions.
+- Contributions beyond the level of a bug fix must be discussed with the team first, or they will likely be declined.
 - Only contributions against the master branch will be accepted. Authors submitting pull requests that target experimental feature branches or release branches will likely be asked target their pull request at the master branch.
-- Pull requests that do not merge easily with the tip of the master branch will be declined. The author will be asked to merge with tip and update the pull request.
+- Pull requests that do not automatically merge with the tip of the master branch will be declined. The author will be asked to rebase to the tip and update the pull request.
 - Submissions must meet functional and performance expectations, including scenarios for which the team doesn’t yet have open source tests. This means you may be asked to fix and resubmit your pull request against a new open test case if it fails one of these tests.
 - Submissions must follow the [.Net Foundation Coding Guidelines](https://github.com/dotnet/corefx/blob/master/Documentation/coding-style.mde)
 - Contributors must sign the [Microsoft CLA](https://cla.microsoft.com/)
