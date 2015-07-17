@@ -1,6 +1,6 @@
 # Redistributing MIEngine
 
-The license of the MIEngine project allows for redistribution, but certain changes must be made in order to ensure that your distribution does not interfere with the official Visual Studio MIEngine binaries. The VSIX package produced by the build is named MIDebugEngine.DoNotInstall.vsix because it should not be installed directly because it will corrupt the MIEngine that ships with Visual Studio. With the correct changes, you can produce a vsix that is installable side by side with the official MIEngine distributed by Microsoft.
+The license of the MIEngine project allows for redistribution, but certain changes must be made in order to ensure different distributions do not conflict with Microsoft's. The VSIX package produced by the build is named MIDebugEngine.DoNotInstall.vsix because it will corrupt the MIEngine that ships with Visual Studio if installed directly. With the correct changes, you can produce a VSIX that is installable side by side with the official MIEngine distributed by Microsoft.
 
 ## Changes Required for Redistribution
 
