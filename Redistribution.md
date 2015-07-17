@@ -22,6 +22,8 @@ In addition to updating the GUIDs in [source.extension.vsixmanifext](https://git
 ### Renaming
 It is fine to use the MIEngine name in redistributions, we expect that 'Microsoft' would be removed from all binaries being redistributed. For example Microsoft.MIEngine.dll -> YourNameHere.MIEngine.dll. 
 
+### Testing
+After completing these steps, please test your VSIX on a copy of Visual Studio that has the Microsoft MIEngine installed (in Visual Studio setup, 'Cross Platform Mobile Development -> Visual C++ Mobile Development' is checked). Make sure that your version of the MIEngine isn't being used for Android scenarios and that the Android debugger still works.
 
 ### Additional Information
 If you would like to redistribute MIEngine and have additional questions, please contact us at vsmiengine@microsoft.com. 
