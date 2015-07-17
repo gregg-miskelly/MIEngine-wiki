@@ -43,3 +43,11 @@ We have a number of known issues with supporting other platforms that might be r
 
 [Issues list](https://github.com/Microsoft/MIEngine/labels/general-linux-support)
 
+### Changing the MIEngine
+
+If you find you need to make changes to the MIEngine to support your platform, we are happy to accept changes, as long as they are high quality.
+
+If you then want to distribute your changes, you have a few options:
+1. If you just are distributing changes to a couple of machines in your office, you can use Install.cmd (see [instructions](https://github.com/Microsoft/MIEngine/wiki/Patching-Visual-Studio)).
+2. Visual Studio ships frequent updates, so you can wait for Microsoft to distribute your changes in the next update. We generally recommend this approach.
+3. You can [redistribute](https://github.com/Microsoft/MIEngine/wiki/Redistribution) your own copy.
