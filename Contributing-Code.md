@@ -1,6 +1,6 @@
 ###Contributing Code
 
-Before submitting a feature or substantial code contribution please discuss it with the team. The team rigorously reviews and tests all code submissions. The submissions must meet an extremely high bar for quality and design. 
+Before submitting a feature or substantial code contribution please discuss it with the team. The team reviews and tests all code submissions. The submissions must meet a high bar for quality and design. 
 
 The MIEngine project follows a similar developer guide to [.NET](https://github.com/dotnet/corefx/wiki/Developer-Guide).  The team enforces this by regularly running the [.NET code formatter tool](https://github.com/dotnet/codeformatter) on the code base.  Contributors should ensure they follow these guidelines when making submissions.  
 
