@@ -226,7 +226,7 @@ void android_main(struct android_app* state) {
   <Command name="quit" />
 </GlassEventLog>
 ```
-Tips for authoring a TestScript.xml can be found [here](TODO)
+Tips for authoring a TestScript.xml can be found [here](https://github.com/Microsoft/MIEngine/wiki/Testing-with-Glass#developing-new-glass-tests)
 
 - Run our new test using the androidtest.cmd script
 ```
