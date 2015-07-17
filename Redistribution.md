@@ -8,7 +8,7 @@ The license of the MIEngine project allows for redistribution, but certain chang
 Multiple GUIDs need to be replaced in order to redistribute.
 
 
-1. The COM Registration GUID must be replaced in [AD7Engine.cs](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugEngine/AD7.Impl/AD7Engine.cs#L34) and two places in[Microsoft.MIDebugEngine.pkgdef](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugEngine/Microsoft.MIDebugEngine.pkgdef#L17).
+1. The COM Registration GUID must be replaced in [AD7Engine.cs](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugEngine/AD7.Impl/AD7Engine.cs#L34) and two places in [Microsoft.MIDebugEngine.pkgdef](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugEngine/Microsoft.MIDebugEngine.pkgdef#L17).
 2. The EngineId GUID must be replaced in [EngineConstants.cs](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugEngine/AD7.Impl/EngineConstants.cs) and [Microsoft.MIDebugEngine.pkgdef](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugEngine/Microsoft.MIDebugEngine.pkgdef#L1).
 3. If redistributing the iOS or Android Launcher binaries, their COM Registration GUIDs must be changed on both their Launcher classes and their pkgdef files.
 4. All GUIDs in the MIDebugPackage project must change. GUIDs are located in [Guids.cs](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugPackage/Guids.cs), [MIDebugPackage.vsct](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugPackage/MIDebugPackage.vsct), and  [source.extension.vsixmanifext](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugPackage/source.extension.vsixmanifest). 
