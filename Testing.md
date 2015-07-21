@@ -10,7 +10,7 @@ These tests are called 'Glass Tests' because they are automated against a script
 To run all tests against an android emulator:
 
 - Make sure the project has been built, either using build.cmd or building from within Visual Studio.
-- Start an Android emulator using the Visual Studio Emulator for Android application that comes with Visual Studio.
+- Start an Android emulator using the Visual Studio Emulator for Android application that comes with Visual Studio. See the [tutorial](https://github.com/Microsoft/MIEngine/wiki/Quick-tutorial-on-debugging-the-MIEngine) for information on setting this up.
 - From an administrator Visual Studio Developer Command Prompt, cd to the test\Android\ directory. 
 - Starting the tests requires the device ID of the emulator. Running androidtest.cmd with no arguments will use adb.exe to list connected android devices:
 ```
