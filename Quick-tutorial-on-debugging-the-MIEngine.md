@@ -2,7 +2,7 @@ This wiki page will give a quick overview on how you can get started digging int
 
 ### Setup steps:
 
-1. Install Visual Studio on a real computer (not a VM).
+1. Install Visual Studio on a real computer (not a VM), as this tutorial uses the Visual Studio Emulator for Android (see [system requirements](https://msdn.microsoft.com/en-us/library/mt228280(v=vs.140).aspx)).
 
 2. Make sure that Android C++ support is enabled in Visual Studio 2015 setup. If you didn't do this or you aren't sure --
     * Open Windows Control Panel.
