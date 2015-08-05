@@ -1,6 +1,6 @@
 As you have hopefully seen, patching an experimental VS instance with a new version of the MIEngine is super easy - just hit F5. But after you think your changes are ready, you might want to patch the regular (non-experimental) VS instance. Doing this is pretty easy too --
 * Build the configuration you want to run (Debug or Release)
-* Run `bin\debug\drop\Install.cmd` (Replace 'Debug' with 'Release' if that is what you want to patch with that)
+* Run `bin\Debug\drop\Install.cmd` (Replace 'Debug' with 'Release' if that is what you want to patch with that)
 
 ### Notes
 * The script grabs the files to patch from the same directory as where the script is running from
