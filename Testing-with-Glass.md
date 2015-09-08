@@ -55,3 +55,32 @@ Steps:
 * Issue commands to Glass like it is a regular debugger (ex: type 'step' to issue the 'step' command).
 * Use the 'help' command to list commands and get their syntax. The information here isn't perfect, but its a start. You can search through other TestScript.xml's to see how other tests are using the command.
 * At the end, edit and save the session log just like technique #1.
+
+## Events that require special care
+
+When you are developing a glass test, there are a few events that you want to be a little careful about --
+
+### IDebugBreakpointBoundEvent2
+By default IDebugBreakpointBoundEvent2 is not considered an expected event and, in some tests, this can cause problems. The problem happens because glass will output a 'BoundBreakpoint' XML element when the event comes in. Example:
+
+    <Event name="IDebugBreakpointBoundEvent2" expected="False">  
+        <BoundBreakpoint>24,0 to 24,0 in [Unknown]!break_test_1()</BoundBreakpoint>  
+    </Event>
+
+If the IDebugBreakpointBoundEvent2 is not declared as expected and associated with the command that causes the bound breakpoint event than this can cause problems because glass is being told to expect information, but isn't being told to block for that information, so it is non deterministic as to when this information shows up. See [commit 3a4b643](https://github.com/Microsoft/MIEngine/commit/3a4b64354eec43a3c55d62b83ab78e7f84834f18) for an example of this problem.
+
+If the breakpoint is set before the launch command, generally this is not a problem as somewhere in the launch command the breakpoint will bind, and it will always bind as part of the launch command, so glass will always get the right output. 
+
+If the breakpoint is set in the middle of the test, one of the following should be done:
+
+1. Remove the 'BoundBreakpoint' element from the test script. Now glass will not complain no matter when the breakpoint bind shows up.
+
+    -or-
+2. Declare the IDebugBreakpointBoundEvent2 as expected, and make sure it in associated with the command that causes the breakpoint to bind.
+
+
+### IDebugOutputStringEvent2
+
+IDebugOutputStringEvent2 is a similar problem to IDebugBreakpointBoundEvent2 in that when an output string event shows up, glass will output an XML node with data from the event (OutputString is this case). The other problem without output string events is that the core debugger can combine multiple output string events together depending on timing. So if the target is sending multiple output string events, it may be non deterministic how many events make it to glass.
+
+Usually, the best solution for OutputString events is just to remove the OutputString from the test script.
