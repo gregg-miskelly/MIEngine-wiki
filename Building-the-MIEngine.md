@@ -1,3 +1,4 @@
+# Requirements
 Here are the requirements to build the MIEngine:
 
 1. You need to be on Windows. The MIEngine cannot currently be compiled on Unix/MacOS.
@@ -21,3 +22,6 @@ Here are the requirements to build the MIEngine:
         * Cross Platform Mobile Development
             * [Recommended] Visual C++ Mobile Development
             * [Recommended] Microsoft Visual Studio Emulator for Android
+
+5. After opening the solution, make sure to switch to the 'Debug' configuration
+6. If you find that IntelliSense or the resx designer doesn't work. Try building the solution (which will download all the dependent NuGet packages) and close and reopen the solution.
