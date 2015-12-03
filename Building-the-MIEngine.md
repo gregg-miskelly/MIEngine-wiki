@@ -6,7 +6,7 @@ Here are the requirements to build the MIEngine:
 
 3. Not an absolute requirement, but strongly recommended: [install VS 2015 Update 1](http://go.microsoft.com/fwlink/?LinkId=691129) or newer.
 
-4. The Windows 10 tools must be installed (these add support for the portable class libraries that the MIEngine uses). It is also recommended to install the Android tools so that you can test the Android C++ scenario. If you didn't do this or you aren't sure --
+4. The Windows 10 tools must be installed (these add support for the [portable class libraries](https://github.com/Microsoft/MIEngine/wiki/Portable-Class-Libraries-(PCL)-used-in-the-MIEngine) that the MIEngine uses). It is also recommended to install the Android tools so that you can test the Android C++ scenario. If you didn't do this or you aren't sure --
 
     * Open Windows Control Panel.
     * Open the Programs and Features applet.
