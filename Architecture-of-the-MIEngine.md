@@ -19,3 +19,5 @@ MICore contains the base functionality used by the Engine.Impl layer, though tha
 The only enforced boundary between MICore and Engine.Impl is that the various launchers only depend on MICore. So the types of functionality used by the launchers must be defined there.
 
 The Android Launch and iOS Launcher handle the details of getting everything prepped so that we can debug on those platforms.
+
+Lastly, all of these dlls depend on Microsoft.DebugEngineHost. More information on how this work can be found [here](https://github.com/Microsoft/MIEngine/wiki/How-Microsoft.DebugEngineHost-works).
