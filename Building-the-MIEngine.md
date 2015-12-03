@@ -1,4 +1,3 @@
-# Requirements
 Here are the requirements to build the MIEngine:
 
 1. You need to be on Windows. The MIEngine cannot currently be compiled on Unix/MacOS.
