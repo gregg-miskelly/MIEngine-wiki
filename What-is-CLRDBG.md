@@ -1,4 +1,4 @@
-CLRDBG is mentioned a few places in the documentation and the code. This is our new cross-platform command line debugger used for debugging code running on [CoreCLR](https://github.com/dotnet/coreclr). It is a port of the backend for Visual Studio's normal .NET debugger to run on other platforms + a new command line debugger wrapper which speaks the MI protocol.
+CLRDBG is mentioned a few places in the documentation and the code. This is our new cross-platform command line debugger used for debugging code running on .NET Core. It is a port of the backend for Visual Studio's normal .NET debugger to run on other platforms + a new command line debugger wrapper which speaks the MI protocol.
 
 CLRDBG will release for the first time with .NET Core RC2. On Linux, you can obtain the latest version designed to run against VS 2015 Update 2 with the following command. Replace '~/clrdbg' if you want to install it to a different directory.
 
