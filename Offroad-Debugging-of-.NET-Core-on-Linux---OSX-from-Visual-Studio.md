@@ -42,6 +42,7 @@ Test to make sure you have things setup correctly by running something like:
     REM List the containers so you know which one to target
     "C:\Program Files\Docker Toolbox\docker.exe" ps
     "C:\Program Files\Docker Toolbox\docker.exe" exec -i <container-id> /bin/bash -c "echo hello world"
+    REM 'hello world' should print
 
 #### SSH
 For SSH support, you first want to enable SSH in your Linux server. For example, you can do that on Ubuntu with:
@@ -57,10 +58,12 @@ You then need a way to authenticate which can be scripted. One option is to prov
 3. Save the generated private key to a file.
 4. Copy the public key's text from the top part of the PuTTY Key Generator's Window.
 5. Add this to the ~/.ssh/authorized_keys file on your server.
-6. Test your connection from the command line. This will also allow you to accept the server's key on the client, which must be done the first time. For example:
+6. Test your connection from the command line. This will also allow you to accept the server's key on the client, which must be done the first time.
+
+Example:
 
     c:\mytools\plink.exe -i c:\users\greggm\ssh-key.ppk greggm@mylinuxbox -batch -t echo "hello world"
-
+    REM 'hello world' should print
 
 ### Sharing sources and compiled binaries
 If you are compiling your app on Linux, you need some way of sharing sources back to Windows. One option is to setup an SMB share on your Linux box. You can also go the other way and keep your sources on Windows, but share them out to your Linux box to build. If you are debugging code that is already checked in, obviously you can also just sync your enlistment on both machines to the same commit.
