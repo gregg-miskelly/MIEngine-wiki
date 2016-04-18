@@ -75,6 +75,13 @@ If you are compiling your app on Windows, you need to make sure:
 
 If you are doing normal day-to-day development, or this is the first time you are deploying to Linux, I would strongly recommend build in the 'Debug' configuration instead of release
 
+If you want to connect to a Windows share from Linux, you can use something like the following commands:
+
+    sudo apt-get install cifs-utils
+    sudo mkdir /mnt/myshare
+    sudo mount -t cifs //my-windows-computer/myshare /mnt/myshare -o domain=my-windows-domain,username=myalias,uid=$USER,gid=$USER
+    # /mnt/myshare should now be mapped
+
 ### Create launch options file:
 Next you need to create an XML file that will tell Visual Studio how to debug. You may want to save https://github.com/Microsoft/MIEngine/blob/master/src/MICore/LaunchOptions.xsd to your project so that the XML editor will give you IntelliSense for the file. Here is an example launch option file which uses plink.exe to connect to the target over SSH and launch a project called 'clicon':
 
