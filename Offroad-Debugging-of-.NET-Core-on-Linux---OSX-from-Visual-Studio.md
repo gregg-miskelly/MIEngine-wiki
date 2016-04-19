@@ -130,4 +130,4 @@ If you are attempting to debug retail code, you will want to turn off Just My Co
 ### Start debugging
 1. Start Visual Studio
 2. View->Other Windows->Command Window
-3. Debug.MIDebugLaunch /Executable:dotnet /OptionsFile:<path-to-the-xml-file-you-saved>
+3. Debug.MIDebugLaunch /Executable:dotnet /OptionsFile:\<path-to-the-xml-file-you-saved\>
