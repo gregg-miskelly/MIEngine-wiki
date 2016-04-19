@@ -70,11 +70,11 @@ Example:
 ##### Building on Windows
 If you are developing and compiling your app in Visual Studio, you need some way of getting the following to your Linux target machine:
 
-* The PDB files for any module you want to debug. Currently, by default, projects built on Windows will not generate PDBs that are readable on Linux, so you need to change your project to use Portable PDBs ([instructions](https://github.com/OmniSharp/omnisharp-vscode/wiki/Portable-PDBs#how-to-generate-portable-pdbs)).
+* The PDB files for any module you want to debug. Currently, by default, projects built on Windows will **not** generate PDBs that are readable on Linux, so you need to change your project to use Portable PDBs ([instructions](https://github.com/OmniSharp/omnisharp-vscode/wiki/Portable-PDBs#how-to-generate-portable-pdbs)).
 * The app itself, and any runtime dependencies it might have
-* The '<proj-name>.deps.json' file which is used by the 'dotnet' host executable to find determine runtime dependencies
+* The '\<proj-name\>.deps.json' file which is used by the 'dotnet' host executable to find determine runtime dependencies
 
-For simple projects, you can find these files in <SolutionDir>\artifacts\src\<ProjectName>\bin\Debug\netcoreapp1.0. For projects with dependencies, you can use 'dotnet publish' to assemble the files you are likely to need.
+For simple projects, you can find these files in \<SolutionDir\>\artifacts\src\\<ProjectName\>\bin\Debug\netcoreapp1.0. For projects with dependencies, you can use 'dotnet publish' to assemble the files you are likely to need.
 
 ##### Building on Linux
 If you are compiling your app on Linux, you need some way of sharing sources back to Windows so that Visual Studio can open them. Keep in mind that we don't yet support checks in the debugger to make sure the files match exactly, so make sure you are debugging with the right set of source files.
@@ -82,7 +82,7 @@ If you are compiling your app on Linux, you need some way of sharing sources bac
 ##### Transferring file
 Obviously there any many options to transfer files between Windows and Linux. This document will not try and list all of them, but for those just trying to kick the tires, here are a few commands you might find useful:
 
-Connect to a Windows share from Linux:
+Connect to a Windows share from Ubuntu:
 
     sudo apt-get install cifs-utils
     sudo mkdir /mnt/myshare
@@ -91,7 +91,8 @@ Connect to a Windows share from Linux:
 
 To copy files using scp (SSH-based secure copy):
 
-    c:\mytools\pscp.exe -i c:\users\greggm\my-ssh-key.ppk c:\MyProject\artifacts\src\MyProject\bin\Debug\netcoreapp1.0\* greggm@mylinuxbox:/home/myalias/myproject
+    # NOTE: greggm is an example account name
+    c:\mytools\pscp.exe -i c:\users\greggm\my-ssh-key.ppk c:\MyProject\artifacts\src\MyProject\bin\Debug\netcoreapp1.0\* greggm@mylinuxbox:/home/greggm/myproject
 
 ### Create launch options file:
 Next you need to create an XML file that will tell Visual Studio how to debug. You may want to save https://github.com/Microsoft/MIEngine/blob/master/src/MICore/LaunchOptions.xsd to your project so that the XML editor will give you IntelliSense for the file. Here is an example launch option file which uses plink.exe to connect to the target over SSH and launch a project called 'clicon':
