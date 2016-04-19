@@ -66,21 +66,32 @@ Example:
     REM 'hello world' should print
 
 ### Sharing sources and compiled binaries
-If you are compiling your app on Linux, you need some way of sharing sources back to Windows. One option is to setup an SMB share on your Linux box. You can also go the other way and keep your sources on Windows, but share them out to your Linux box to build. If you are debugging code that is already checked in, obviously you can also just sync your enlistment on both machines to the same commit.
 
-If you are compiling your app on Windows, you need to make sure:
+##### Building on Windows
+If you are developing and compiling your app in Visual Studio, you need some way of getting the following to your Linux target machine:
 
-1. You are copying your PDBs to the target computer as well as the built binaries.
-2. Your PDBs are using the new Portable PDB format: https://github.com/OmniSharp/omnisharp-vscode/wiki/Portable-PDBs#how-to-generate-portable-pdbs
+* The PDB files for any module you want to debug. Currently, by default, projects built on Windows will not generate PDBs that are readable on Linux, so you need to change your project to use Portable PDBs ([instructions](https://github.com/OmniSharp/omnisharp-vscode/wiki/Portable-PDBs#how-to-generate-portable-pdbs)).
+* The app itself, and any runtime dependencies it might have
+* The '<proj-name>.deps.json' file which is used by the 'dotnet' host executable to find determine runtime dependencies
 
-If you are doing normal day-to-day development, or this is the first time you are deploying to Linux, I would strongly recommend build in the 'Debug' configuration instead of release
+For simple projects, you can find these files in <SolutionDir>\artifacts\src\<ProjectName>\bin\Debug\netcoreapp1.0. For projects with dependencies, you can use 'dotnet publish' to assemble the files you are likely to need.
 
-If you want to connect to a Windows share from Linux, you can use something like the following commands:
+##### Building on Linux
+If you are compiling your app on Linux, you need some way of sharing sources back to Windows so that Visual Studio can open them. Keep in mind that we don't yet support checks in the debugger to make sure the files match exactly, so make sure you are debugging with the right set of source files.
+
+##### Transferring file
+Obviously there any many options to transfer files between Windows and Linux. This document will not try and list all of them, but for those just trying to kick the tires, here are a few commands you might find useful:
+
+Connect to a Windows share from Linux:
 
     sudo apt-get install cifs-utils
     sudo mkdir /mnt/myshare
     sudo mount -t cifs //my-windows-computer/myshare /mnt/myshare -o domain=my-windows-domain,username=myalias,uid=$USER,gid=$USER
     # /mnt/myshare should now be mapped
+
+To copy files using scp (SSH-based secure copy):
+
+    c:\mytools\pscp.exe -i c:\users\greggm\my-ssh-key.ppk c:\MyProject\artifacts\src\MyProject\bin\Debug\netcoreapp1.0\* greggm@mylinuxbox:/home/myalias/myproject
 
 ### Create launch options file:
 Next you need to create an XML file that will tell Visual Studio how to debug. You may want to save https://github.com/Microsoft/MIEngine/blob/master/src/MICore/LaunchOptions.xsd to your project so that the XML editor will give you IntelliSense for the file. Here is an example launch option file which uses plink.exe to connect to the target over SSH and launch a project called 'clicon':
