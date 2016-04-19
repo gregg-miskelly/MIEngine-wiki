@@ -32,10 +32,10 @@ As an alternative, you can certainly also clone this project and [build your own
         bash /dev/stdin vs2015u2 ~/clrdbg
 
 ### Setting up a transport
-Visual Studio relies on some other executable to take care of remoting stdin/out between the Windows computer and the target computer. The nice side of this is that you can debug as long as you have some way to exchange messages between your two computers. The downside though is that this will take a bit of work to setup. But then again you are reading the offroad instructions :). Here are some hints with getting things setup with Docker or SSH. But you can bring anything you want.
+Visual Studio relies on another executable to take care of remoting stdin/out between the Windows computer and the target computer. The nice side of this is that you can debug as long as you have some way to exchange messages between your two computers; The downside is that this will take a bit of work to setup. Then again, you _are_ reading the offroad instructions :). Here are some hints for getting things setup with Docker or SSH, but you can bring anything you want.
 
 #### Docker
-If your target is running in Docker, you want to install the [Docker Toolbox](https://www.docker.com/products/docker-toolbox), and configure the Docker client tools to connect to whatever host machine is running your contains.
+If your target is running in Docker, you want to install the [Docker Toolbox](https://www.docker.com/products/docker-toolbox), and configure the Docker client tools to connect to whatever host machine is running your container.
 
 Test to make sure you have things setup correctly by running something like:
 
@@ -45,13 +45,13 @@ Test to make sure you have things setup correctly by running something like:
     REM 'hello world' should print
 
 #### SSH
-For SSH support, you first want to enable SSH in your Linux server. For example, you can do that on Ubuntu with:
+For SSH support, you will first want to enable SSH in your Linux server. For example, on Ubuntu you can do that by running:
 
     sudo apt-get install openssh-server
 
-On Windows you then need an SSH client designed to be used programmatically. Plink.exe from [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) fits the bill, though you can certainly use other tools too. 
+Then, on Windows you need an SSH client designed to be used programmatically. Plink.exe from [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) fits the bill, though you can certainly use other tools too. 
 
-You then need a way to authenticate which can be scripted. One option is to provide the password on the command line, but obviously there are some security concerns there. A more secure option is to use SSH keys --
+Next, you need a scriptable way to authenticate. One option is to provide the password on the command line, but obviously there are some security concerns there. A more secure option is to use SSH keys --
 
 1. Download puttygen.exe from [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 2. Run the tool and click 'Generate' and follow the instructions.
@@ -68,11 +68,11 @@ Example:
 ### Sharing sources and compiled binaries
 
 ##### Building on Windows
-If you are developing and compiling your app in Visual Studio, you need some way of getting the following to your Linux target machine:
+If you are developing and compiling your app in Visual Studio, you need some way of getting the following on your Linux target machine:
 
 * The PDB files for any module you want to debug. Currently, by default, projects built on Windows will **not** generate PDBs that are readable on Linux, so you need to change your project to use Portable PDBs ([instructions](https://github.com/OmniSharp/omnisharp-vscode/wiki/Portable-PDBs#how-to-generate-portable-pdbs)).
-* The app itself, and any runtime dependencies it might have
-* The '\<proj-name\>.deps.json' file which is used by the 'dotnet' host executable to find determine runtime dependencies
+* The app itself and any runtime dependencies it might have
+* The '\<proj-name\>.deps.json' file which is used by the 'dotnet' host executable to determine runtime dependencies
 
 For simple projects, you can find these files in \<SolutionDir\>\artifacts\src\\<ProjectName\>\bin\Debug\netcoreapp1.0. For projects with dependencies, you can use 'dotnet publish' to assemble the files you are likely to need.
 
@@ -95,7 +95,7 @@ To copy files using scp (SSH-based secure copy):
     c:\mytools\pscp.exe -i c:\users\greggm\my-ssh-key.ppk c:\MyProject\artifacts\src\MyProject\bin\Debug\netcoreapp1.0\* greggm@mylinuxbox:/home/greggm/myproject
 
 ### Create launch options file:
-Next you need to create an XML file that will tell Visual Studio how to debug. You may want to save https://github.com/Microsoft/MIEngine/blob/master/src/MICore/LaunchOptions.xsd to your project so that the XML editor will give you IntelliSense for the file. Here is an example launch option file which uses plink.exe to connect to the target over SSH and launch a project called 'clicon':
+Next, you need to create an XML file that will tell Visual Studio how to debug. You may want to save https://github.com/Microsoft/MIEngine/blob/master/src/MICore/LaunchOptions.xsd to your project so that the XML editor will give you IntelliSense for the file. Here is an example launch option file which uses plink.exe to connect to the target over SSH and launch a project called 'clicon':
 
     <?xml version="1.0" encoding="utf-8" ?>
     <PipeLaunchOptions xmlns="http://schemas.microsoft.com/vstudio/MDDDebuggerOptions/2014"
@@ -104,10 +104,10 @@ Next you need to create an XML file that will tell Visual Studio how to debug. Y
     </PipeLaunchOptions>
 
 Let's look at how this works:
-* PipePath: this is the path to the executable that MIEngine will launch which will connect to the target computer, launch clrdbg, and establish that stdin/out connection. If you are using Docker, you want this set to 'C:\Program Files\Docker Toolbox\docker.exe' (or wherever the Docker client tools are installed).
-* PipeArguments: Any arguments that the executable specified in 'PipePath' takes. In my example, I am telling plink.exe the path to my private SSH key, telling it to connect to my SSH Linux box, and telling it to executable clrdbg from the '~/clrdbg' directory that I installed it to. If I was using Docker, I might set this to 'exec -i <container-id> ~/clrdbg/clrdbg --interpreter=mi'.
+* PipePath: this is the path to the executable that MIEngine will launch that will connect to the target computer, launch clrdbg, and establish that stdin/out connection. If you are using Docker, you want this set to 'C:\Program Files\Docker Toolbox\docker.exe' (or wherever the Docker client tools are installed).
+* PipeArguments: Any arguments that the executable specified in 'PipePath' takes. In my example, I am telling plink.exe the path to my private SSH key, telling it to connect to my SSH Linux box, and telling it to run executable clrdbg from the '~/clrdbg' directory that I installed it to. If I was using Docker, I might set this to 'exec -i <container-id> ~/clrdbg/clrdbg --interpreter=mi'.
 * ExePath: the path, on the Linux computer, to the executable I want to run. .NET Core provides a generic host executable ('dotnet') which the installer adds to the path. So as long as your application uses the default 'dotnet' host executable, you can leave this as-is.
-* ExeArguments: If you are using the 'dotnet' host executable, the first argument is the path to the dll you want to run. After that is any command line arguments that your executable accepts.
+* ExeArguments: If you are using the 'dotnet' host executable, the first argument is the path to the dll you want to run. After that you can include any command line arguments that your executable accepts.
 
 ##### Attaching to a process
 You can also use launch option files to attach to the target process. For example, here is how to attach to process id #13594 with a clrdbg installed to ~/clrdbg:
@@ -121,7 +121,7 @@ You can also use launch option files to attach to the target process. For exampl
      <LaunchCompleteCommand>None</LaunchCompleteCommand>
     </PipeLaunchOptions>
 
-You can also attach to a process by name instead of by process id using '-n <process-name' instead of '13594'. Though this option is likely only useful if you have configured your project to have a host executable since there are probably too many 'dotnet' processes.
+You can also attach to a process by name instead of by process id using '-n <process-name' instead of '13594', though this option is likely only useful if you have configured your project to have a host executable since there are probably too many 'dotnet' processes.
 If you have a bash script that can find the right process, you can have the bash script provide the process id to clrdbg using the '--attach' command line argument. In this case, remove the 'Command' element from within 'CustomLaunchSetupCommands'.
 
 ### Turn of Just My Code if you are retail debugging
