@@ -104,7 +104,7 @@ Next you need to create an XML file that will tell Visual Studio how to debug. Y
     </PipeLaunchOptions>
 
 Let's look at how this works:
-* PipePath: this is the path to the executable that MIEngine will launch which will connect to the target computer, launch clrdbg, and establish that stdin/out connection. If you are using docker, you want this set to 'C:\Program Files\Docker Toolbox\docker.exe' (or wherever the Docker client tools are installed).
+* PipePath: this is the path to the executable that MIEngine will launch which will connect to the target computer, launch clrdbg, and establish that stdin/out connection. If you are using Docker, you want this set to 'C:\Program Files\Docker Toolbox\docker.exe' (or wherever the Docker client tools are installed).
 * PipeArguments: Any arguments that the executable specified in 'PipePath' takes. In my example, I am telling plink.exe the path to my private SSH key, telling it to connect to my SSH Linux box, and telling it to executable clrdbg from the '~/clrdbg' directory that I installed it to. If I was using Docker, I might set this to 'exec -i <container-id> ~/clrdbg/clrdbg --interpreter=mi'.
 * ExePath: the path, on the Linux computer, to the executable I want to run. .NET Core provides a generic host executable ('dotnet') which the installer adds to the path. So as long as your application uses the default 'dotnet' host executable, you can leave this as-is.
 * ExeArguments: If you are using the 'dotnet' host executable, the first argument is the path to the dll you want to run. After that is any command line arguments that your executable accepts.
