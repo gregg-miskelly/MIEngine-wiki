@@ -54,7 +54,7 @@ Then, on Windows you need an SSH client designed to be used programmatically. Pl
 Next, you need a scriptable way to authenticate. One option is to provide the password on the command line, but obviously there are some security concerns there. A more secure option is to use SSH keys --
 
 1. Download puttygen.exe from [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-2. Run the tool and click 'Generate' and follow the instructions.
+2. Run the tool and click 'Generate' and follow the instructions. Note: leave 'Key passphrase' empty, otherwise plink.exe will fail to open the key.  
 3. Save the generated private key to a file.
 4. Copy the public key's text from the top part of the PuTTY Key Generator's Window.
 5. Add this to the ~/.ssh/authorized_keys file on your server.
@@ -131,3 +131,6 @@ If you are attempting to debug retail code, you will want to turn off Just My Co
 1. Start Visual Studio
 2. View->Other Windows->Command Window
 3. Debug.MIDebugLaunch /Executable:dotnet /OptionsFile:\<path-to-the-xml-file-you-saved\>
+
+### Detaching 
+Use 'Debug->Detach All' to detach from the process. Stop debugging will terminate the process. 
