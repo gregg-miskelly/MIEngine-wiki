@@ -6,5 +6,4 @@ There are two ways to workaround this:
 
     This will set the ptrace level to 0, after this just with user permissions you can attach to processes which are not launched by the debugger. 
 
-* Alternatively, launch GDB as super user and attach to processes. 
-
+* Alternatively, launch GDB as super user and attach to processes. Use root@machine to login with a password or certificate. Note, many Linux distros are configured to disallow root login through SSH for security reasons. You may have to configure /etc/ssh/sshd_config to allow root login with certificate or password. You can verify SSH connection via a client like putty.exe in windows. 
