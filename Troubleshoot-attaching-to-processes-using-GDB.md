@@ -2,7 +2,7 @@ Attaching to a process on Linux with GDB as a normal user may fail with "ptrace:
 
 There are two ways to workaround this:
 
-* Run the following command as super user: `echo "0" > /proc/sys/kernel/yama/ptrace_scope`
+* Run the following command as super user: `echo "0" | sudo tee /proc/sys/kernel/yama/ptrace_scope`
 
     This will set the ptrace level to 0, after this just with user permissions you can attach to processes which are not launched by the debugger. 
 
