@@ -14,5 +14,4 @@ Logging can also be enabled in a Visual Studio instance without needing to someh
 
 ### Additional notes:
 * [SetMIDebugLogging.cmd](https://github.com/Microsoft/MIEngine/blob/master/src/MICore/SetMIDebugLogging.cmd) has no dependencies, so you can copy it to another computer if you don't want to enlist on the target box.
-* The name of registry keys changed after VS 2015 RC, so if you are using the RC build, SetMIDebugLogging.cmd will not work.
 * If you are looking at Android scenarios, there is a '/serverlogging' argument to SetMIDebugLogging.cmd which can be used to turn on gdbserver logging
