@@ -10,7 +10,7 @@ Multiple GUIDs need to be replaced in order to redistribute.
 
 1. The COM Registration GUID must be replaced in [AD7Engine.cs](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugEngine/AD7.Impl/AD7Engine.cs#L34) and two places in [Microsoft.MIDebugEngine.pkgdef](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugEngine/Microsoft.MIDebugEngine.pkgdef#L17).
 2. The EngineId GUID must be replaced in [EngineConstants.cs](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugEngine/AD7.Impl/EngineConstants.cs) and [Microsoft.MIDebugEngine.pkgdef](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugEngine/Microsoft.MIDebugEngine.pkgdef#L1).
-3. If redistributing the iOS or Android Launcher binaries, their COM Registration GUIDs must be changed on both their Launcher classes and their pkgdef files.
+3. If redistributing the iOS or Android Launcher binaries, their COM Registration GUIDs must be changed on both their Launcher classes and their pkgdef files. Unless you actually want to support Android/iOS we would suggest deleting or disabling these projects.
 4. All GUIDs in the MIDebugPackage project must change. GUIDs are located in [Guids.cs](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugPackage/Guids.cs), [MIDebugPackage.vsct](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugPackage/MIDebugPackage.vsct), and  [source.extension.vsixmanifext](https://github.com/Microsoft/MIEngine/blob/master/src/MIDebugPackage/source.extension.vsixmanifest). 
 
 ### Strong Name Signing Key
@@ -21,6 +21,9 @@ In addition to updating the GUIDs in [source.extension.vsixmanifext](https://git
 
 ### Renaming
 It is fine to use the MIEngine name in redistributions, we expect that 'Microsoft' would be removed from all binaries being redistributed. For example Microsoft.MIEngine.dll -> YourNameHere.MIEngine.dll. 
+
+### Command Window
+The Microsoft version of the MIEngine will register the [Debug.MIDebugLaunch](https://github.com/Microsoft/MIEngine/blob/01d969351ba74614ed29d3a927e26e9176e45698/src/MIDebugPackage/MIDebugPackage.vsct#L49) and [Debug.MIDebugExec](https://github.com/Microsoft/MIEngine/blob/01d969351ba74614ed29d3a927e26e9176e45698/src/MIDebugPackage/MIDebugPackage.vsct#L59) command window commands. You will either need to rename these commands (easy way) or remove the MIDebugPackage from the vsix (harder way) if you don't care about command window integration.
 
 ### Testing
 After completing these steps, please test your VSIX on a copy of Visual Studio that has the Microsoft MIEngine installed (in Visual Studio setup, 'Cross Platform Mobile Development -> Visual C++ Mobile Development' is checked). Make sure that your version of the MIEngine isn't being used for Android scenarios and that the Android debugger still works.
