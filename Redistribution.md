@@ -22,6 +22,8 @@ In addition to updating the GUIDs in [source.extension.vsixmanifext](https://git
 ### Renaming
 It is fine to use the MIEngine name in redistributions, we expect that 'Microsoft' would be removed from all binaries being redistributed. For example Microsoft.MIEngine.dll -> YourNameHere.MIEngine.dll. 
 
+The easiest way to get this correct is to Find/Replace-In-Files (Ctrl+Shift+F and Ctrl+Shift+H) on the MIEngine directory.
+
 ### Command Window
 The Microsoft version of the MIEngine will register the [Debug.MIDebugLaunch](https://github.com/Microsoft/MIEngine/blob/01d969351ba74614ed29d3a927e26e9176e45698/src/MIDebugPackage/MIDebugPackage.vsct#L49) and [Debug.MIDebugExec](https://github.com/Microsoft/MIEngine/blob/01d969351ba74614ed29d3a927e26e9176e45698/src/MIDebugPackage/MIDebugPackage.vsct#L59) command window commands. You will either need to rename these commands (easy way) or remove the MIDebugPackage from the vsix (harder way) if you don't care about command window integration.
 
