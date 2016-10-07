@@ -124,7 +124,7 @@ You can also use launch option files to attach to the target process. For exampl
 You can also attach to a process by name instead of by process id using '-n <process-name' instead of '13594', though this option is likely only useful if you have configured your project to have a host executable since there are probably too many 'dotnet' processes.
 If you have a bash script that can find the right process, you can have the bash script provide the process id to clrdbg using the '--attach' command line argument. In this case, remove the 'Command' element from within 'CustomLaunchSetupCommands'.
 
-### Turn of Just My Code if you are retail debugging
+### Turn off Just My Code if you are retail debugging
 If you are attempting to debug retail code, you will want to turn off Just My Code through Tools->Options->Debugging in Visual Studio. MIEngine has some issues doing this on the fly still, so I would recommend doing it before start debugging.
 
 ### Start debugging
