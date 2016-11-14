@@ -1,6 +1,6 @@
 Microsoft and the .NET community have created a new version of .NET, .NET Core, which is designed to be cross-platform, modular, and optimized for the cloud. Visual Studio has obviously had support for developing .NET Core apps on Windows throughout the project, but debugging support on non-Windows platforms is new for the RC2 release.
 
-If you want to develop on the target device itself, you can use Visual Studio Code by following [these instructions](http://aka.ms/vscclrdebugger). But it is also possible to stay in Visual Studio and still debug to Linux or OSX. For day-to-day development, especially if you intend to deploy to a Linux Docker container, you should use the [Visual Studio Tools for Docker](https://visualstudiogallery.msdn.microsoft.com/0f5b2caa-ea00-41c8-b8a2-058c7da0b3e4) as soon as they ship their update with debugging support.
+If you want to develop on the target device itself, you can use Visual Studio Code by following [these instructions](http://aka.ms/vscclrdebugger). But it is also possible to stay in Visual Studio and still debug to Linux or OSX. For day-to-day development, especially if you intend to deploy to a Linux Docker container, you should use the [Visual Studio Tools for Docker](https://visualstudiogallery.msdn.microsoft.com/0f5b2caa-ea00-41c8-b8a2-058c7da0b3e4).
 
 In the future, more scenarios are likely to get a more 'on-road' experience from Visual Studio. But for now, for folks who want to play around with non-Docker scenarios, need to be able to attach to processes, or just want to get under the hood and see how things work, this wiki page should walk you through how to get things to work in an offroad manner. Pay attention as this will be a bit bumpy.
 
@@ -10,22 +10,16 @@ File bugs and feature requests [here](https://github.com/Microsoft/MIEngine/issu
 ### Machine setup
 
 #### Visual Studio Computer
-In Visual Studio you need the VS 2015 Update 2 version of the MIDebugEngine. The easiest way currently to acquire these bits is to -
+In Visual Studio you need the VS 2015 Update 3 version of the MIDebugEngine. The easiest way currently to acquire these bits is to -
 
-1. If you haven't already done so, install [Visual Studio 2015 Update 2](http://go.microsoft.com/fwlink/?LinkId=691129).
-2. Enable C++ iOS development, which will install the MIEngine:
-   * Open Windows Control Panel.
-   * Open the Programs and Features applet.
-   * Find Microsoft Visual Studio 2015 in the list.
-   * Right click and invoke 'Change'.
-   * Click the 'Modify' button.
-   * Enable 'Cross Platform Mobile Development->Visual C++ Mobile Development->Visual C++ iOS Development'
+1. If you haven't already done so, install [Visual Studio 2015 Update 3](http://go.microsoft.com/fwlink/?LinkId=691129).
+2. Install the [Visual Studio Tools for Docker](https://visualstudiogallery.msdn.microsoft.com/0f5b2caa-ea00-41c8-b8a2-058c7da0b3e4) which will install the MIDebugEngine.
 
 As an alternative, you can certainly also clone this project and [build your own copy](https://github.com/Microsoft/MIEngine/wiki/Building-the-MIEngine).
 
 #### Linux Computer
 
-1. Install the [.NET Core Command line tools (CLI)](https://github.com/gregg-miskelly/omnisharp-vscode/blob/daily-build-docs/debugger.md#2-install-net-command-line-tools).
+1. Install the [.NET Core Command line tools (CLI)](https://www.microsoft.com/net/core).
 2. Install CLRDBG by running the following command. Replace '~/clrdbg' with wherever you want clrdbg installed to.
 
     curl -sSL https://raw.githubusercontent.com/Microsoft/MIEngine/getclrdbg-release/scripts/GetClrDbg.sh | 
