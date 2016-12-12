@@ -18,9 +18,9 @@ Starting with RC2 MIEngine logging is much simpler. There is a new command in th
 	Debug.MIDebugLog  (/On[:<filename>] | /Off) [/OutputWindow]
 
 Options:
-	/On[:<filename>]	– Turn on MIEngine logging. Optionally specify a file to contain the log. Either the file must be supplied, or the “/OutputWindow” option must appear.
-	/Off 		    	-- Turn off MIEngine logging. If logging to a file the file is closed.
-	/OutputWindow	-- Log to the “Debug” pane in the output Window.
+* /On[:<filename>]	– Turn on MIEngine logging. Optionally specify a file to contain the log. Either the file must be supplied, or the “/OutputWindow” option must appear.
+* /Off 		    	-- Turn off MIEngine logging. If logging to a file the file is closed.
+* /OutputWindow	-- Log to the “Debug” pane in the output Window.
 
 The command may be issued at any point. Logging can be turned on and off as often as desired. If you have enabled logging via the previous mechanism (SetMIDebugLogging.cmd) this command will override those settings. Unlike the previous mechanism, the MIDebugLog state is not remembered between VS invocations.
 
