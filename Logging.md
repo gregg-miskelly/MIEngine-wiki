@@ -12,6 +12,18 @@ Logging can also be enabled in a Visual Studio instance without needing to someh
 * To turn logging back off, run `src\MICore\SetMIDebugLogging.cmd off`
 * Open %TMP%\Microsoft.MIDebug.log
 
+### Visual Studio 2017 RC.2 and after
+Starting with RC2 MIEngine logging is much simpler. There is a new command in the command window:
+
+	Debug.MIDebugLog  (/On[:<filename>] | /Off) [/OutputWindow]
+
+Options:
+	/On[:<filename>]	– Turn on MIEngine logging. Optionally specify a file to contain the log. Either the file must be supplied, or the “/OutputWindow” option must appear.
+	/Off 		    	-- Turn off MIEngine logging. If logging to a file the file is closed.
+	/OutputWindow	-- Log to the “Debug” pane in the output Window.
+
+The command may be issued at any point. Logging can be turned on and off as often as desired. If you have enabled logging via the previous mechanism (SetMIDebugLogging.cmd) this command will override those settings. Unlike the previous mechanism, the MIDebugLog state is not remembered between VS invocations.
+
 ### Additional notes:
 * [SetMIDebugLogging.cmd](https://github.com/Microsoft/MIEngine/blob/master/src/MICore/SetMIDebugLogging.cmd) has no dependencies, so you can copy it to another computer if you don't want to enlist on the target box.
 * If you are looking at Android scenarios, there is a '/serverlogging' argument to SetMIDebugLogging.cmd which can be used to turn on gdbserver logging
