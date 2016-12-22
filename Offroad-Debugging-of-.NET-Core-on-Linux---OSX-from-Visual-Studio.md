@@ -22,8 +22,7 @@ As an alternative, you can certainly also clone this project and [build your own
 1. Install the [.NET Core Command line tools (CLI)](https://www.microsoft.com/net/core).
 2. Install CLRDBG by running the following command. Replace '~/clrdbg' with wherever you want clrdbg installed to.
 
-    curl -sSL https://raw.githubusercontent.com/Microsoft/MIEngine/getclrdbg-release/scripts/GetClrDbg.sh | 
-        bash /dev/stdin vs2015u2 ~/clrdbg
+    curl -sSL https://aka.ms/getclrdbgsh | bash /dev/stdin vs2015u2 ~/clrdbg
 
 ### Setting up a transport
 Visual Studio relies on another executable to take care of remoting stdin/out between the Windows computer and the target computer. The nice side of this is that you can debug as long as you have some way to exchange messages between your two computers; The downside is that this will take a bit of work to setup. Then again, you _are_ reading the offroad instructions :). Here are some hints for getting things setup with Docker or SSH, but you can bring anything you want.
